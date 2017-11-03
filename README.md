@@ -11,6 +11,11 @@ Oyunumuz Javascript, jQuery, HTML ve CSS kodlama dillerinden oluşmaktadır. Tab
 ### Dikkat edilmesi gerekenler ###
 
 * Proje http://shop.samsung.com/tr/ üzerinde çalışacak şekilde geliştirilmeli. (Extension olarak ya da konsoldan.) 
+* Proje bitbucket üzerinde depolanacak. Aşağıdaki URL ile repository’i lokal ortamınıza klonlayabilirsiniz.
+* Projeyi klonladıktan sonra master branch üzerinden dallanarak isim-soyisim (Örn: emre-dugencioglu) formatında adlandıracak şekilde kendimize ait branch oluşturalım.
+* Proje sonunda tüm değişiklikler oluşturulan branch’a “FINAL COMMIT” comment’i ile gönderilmeli. Proje değerlendirmesi bu commit üzerinden yapılacak.
+
+Repository URL: https://insider-optimus@bitbucket.org/insider-optimus/ps-dev-project.git
 
 ### Projemizde bazı hatalar ve fonksiyonel eksiklikler bulunmaktadır. Senden bu hataları çözmeni ve aşağıdaki eksiklikleri tamamlamanı bekliyoruz: ###
 
