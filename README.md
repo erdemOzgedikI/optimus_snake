@@ -25,7 +25,7 @@ Repository URL: https://insider-optimus@bitbucket.org/insider-optimus/ps-dev-pro
 * The score should be shown in its own box, and the score updates should be animated with CSS.
 * If the snake hit the borders the game should be over and a screen saying game over along with the score should be displayed.
 * If the snake hits its own tail, the game should be over and a screen saying game over along with the score should be displayed.
-* While playing the game on https://www.lcwaikiki.com/tr-TR/TR if you navigate to “About us” page the game won’t continue from where it left off. We need you to make sure the game will continue from where it left off when we run the code again.
+* While playing the game on https://www.lcwaikiki.com/tr-TR/TR if you navigate to About Us Page (http://corporate.lcwaikiki.com/hakkimizda) the game won’t continue from where it left off. We need you to make sure the game will continue from where it left off when we run the code again.
 * Write a comment on top of each function in the code, explaining the purpose of the function.
 * After you’ve fixed the errors in the project, please explain the reason for those errors in a separate document.
 
@@ -51,7 +51,8 @@ Oyunumuz Javascript, jQuery, HTML ve CSS kodlama dillerinden oluşmaktadır. Tab
 
 ### Dikkat edilmesi gerekenler ###
 
-* Proje http://shop.samsung.com/tr/ üzerinde çalışacak şekilde geliştirilmeli. (Extension olarak ya da konsoldan.) 
+* Proje https://www.lcwaikiki.com/tr-TR/TR üzerinde çalışacak şekilde geliştirilmeli. (Extension olarak ya da
+konsoldan.)
 * Proje bitbucket üzerinde depolanacak. Aşağıdaki URL ile repository’i lokal ortamınıza klonlayabilirsiniz.
 * Projeyi klonladıktan sonra master branch üzerinden dallanarak isim-soyisim (Örn: emre-dugencioglu) formatında adlandıracak şekilde kendimize ait branch oluşturalım.
 * Proje sonunda tüm değişiklikler oluşturulan branch’a “FINAL COMMIT” comment’i ile gönderilmeli. Proje değerlendirmesi bu commit üzerinden yapılacak.
@@ -66,7 +67,7 @@ Repository URL: https://insider-optimus@bitbucket.org/insider-optimus/ps-dev-pro
 * Skor değişikliklerinin CSS animasyonları ile gösterildiği bir ekran eklenecek.
 * Sınırlara çarpınca oyun bitmeli ve oyunun bittiğine dair bilgilendirme ekranı skor ile birlikte çıkmalı.
 * Kuyruğa çarpınca oyun bitmeli ve oyunun bittiğine dair bilgilendirme ekranı skor ile birlikte çıkmalı.
-* shop.samsung.com üzerinde GİRİŞ YAP ya da ÜYE OL sayfalarına gidildiğinde yılan kaldığı yerden devam etmiyor. Kod tekrardan çalıştırıldığında yılanın kaldığı yerden devam etmesi için gerekli işlemler yapılacak. 
+* https://www.lcwaikiki.com/tr-TR/TR üzerinde oyunu oynarken Hakkımızda (http://corporate.lcwaikiki.com/hakkimizda) sayfasına gidildiği zaman yılan kaldığı yerden devam etmiyor. Kod tekrardan çalıştırıldığında yılanın kaldığı yerden devam etmesi için gerekli işlemler yapılacak. 
 * Kod içerisindeki fonksiyonlara ne işe yaradıklarına dair açıklamalar comment satırı olarak eklenmeli. 
 * Projede bulunan hataların çözüldükten sonra nedenleri bir dokümanda belirtilmeli.
 
