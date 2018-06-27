@@ -21,7 +21,7 @@
 		return position;
 	};
 
-	var elemaniGetir = function(){
+	var getElement = function(){
 		var targetArea = {
 			top: Number(jQuery('.snakeBody:first').css('top').replace('px','')) + (direction.vertical && direction.vertical * 15),
 			left: Number(jQuery('.snakeBody:first').css('left').replace('px','')) + (direction.horizontal && direction.horizontal * 15)
@@ -40,7 +40,7 @@
 
 		if(e.keyCode == 32){
 			saveGameData();
-			elemaniGetir().length >0 && (elemaniGetir()[0].click());
+			getElement().length >0 && (getElement()[0].click());
 			e.preventDefault();
 			return;
 		}
