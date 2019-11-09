@@ -232,4 +232,5 @@
  3-) User'a score icin herhangi bir belirti gosterilmiyordu o eklendi
 
  4-) Kuyruga carpildginda oyun devam ediyordu o case cozuldu
+
 */
