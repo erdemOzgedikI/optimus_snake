@@ -1,8 +1,12 @@
 (function () {
+	var status = true
 	var snakeBody = jQuery('<div class="snakeBody">');
 	var food = jQuery('<div class="food">'); // food defination 
 	var scoreDiv = jQuery( // score defination
 		'<div class="score">Skor:<label class="scoreValue"></label></div>'
+	);
+	var finishDiv = jQuery( // game over div defination
+		'<div class="finish"><center>Refresh the page to play again!\nGame over your score:<label class="finishScore"></label></center></div>'
 	);
 
 	var positionList = JSON.parse(localStorage.getItem('positionList') || '[]');
@@ -124,46 +128,59 @@
 
 	setInterval(function () {
 		jQuery('.snakeBody').each(function (key) {
-			positionList[key] = {
-				top: Number(
-					jQuery(this)
-						.css('top')
-						.replace('px', '')
-				),
-				left: Number(
-					jQuery(this)
-						.css('left')
-						.replace('px', '')
-				)
-			};
-			// key 0 bizim head'imiz 
-			if (key == 0) {
+			if (status) {
+				positionList[key] = {
+					top: Number(
+						jQuery(this)
+							.css('top')
+							.replace('px', '')
+					),
+					left: Number(
+						jQuery(this)
+							.css('left')
+							.replace('px', '')
+					)
+				};
+				// key 0 bizim head'imiz 
+				if (key == 0) {
+					// position list arrayimiz gecmis oldugumuz pozisyonlari bulundruyor onun icersinde head'imiz positionu var ise biz kuyruga carpmis bulunuruz
+					if (positionList.length === snakeLength) {
+						var i = 1
+						for (i = 1; i < positionList.length; i++) {
+							if (positionList[key].left === positionList[i].left && positionList[key].top === positionList[i].top) {
+								jQuery('body').append(finishDiv.clone());
+								jQuery('.finishScore').text(score);
+								status = false
+								continue
+							}
+						}
+					}
 
-
-				if ( // eger head'imiz foot positiona degerse yeni bir position ekle score degerini ve snake length atrrir.
-					positionList[key].left >= foodPosition.left &&
-					positionList[key].left < foodPosition.left + 15 &&
-					positionList[key].top >= foodPosition.top &&
-					positionList[key].top < foodPosition.top + 15
-				) {
-					positionList.push({
-						top: positionList[snakeLength - 1].top,
-						left: positionList[snakeLength - 1].left + 15
-					});
-					score += 2;
-					snakeLength += 1;
-					jQuery('body').append( // yeni gelen item'i css ile html'e ekle
-						snakeBody.clone().css(positionList[snakeLength] || {})
-					);
-					setScore(score); //score set et
-					// random yeni bir position ekle ve onu set et
-					var foodX = Math.floor(Math.random() * 20);
-					var foodY = Math.floor(Math.random() * 20);
-					setFoodPosition(foodX * 15, foodY * 15);
-				}
-				// console.log("THIS:", this)
-				jQuery(this).css(getNextPosition(jQuery(this)));
-			} else jQuery(this).css(positionList[key - 1]);
+					if ( // eger head'imiz foot positiona degerse yeni bir position ekle score degerini ve snake length atrrir.
+						positionList[key].left >= foodPosition.left &&
+						positionList[key].left < foodPosition.left + 15 &&
+						positionList[key].top >= foodPosition.top &&
+						positionList[key].top < foodPosition.top + 15
+					) {
+						positionList.push({
+							top: positionList[snakeLength - 1].top,
+							left: positionList[snakeLength - 1].left + 15
+						});
+						score += 2;
+						snakeLength += 1;
+						jQuery('body').append( // yeni gelen item'i css ile html'e ekle
+							snakeBody.clone().css(positionList[snakeLength] || {})
+						);
+						setScore(score); //score set et
+						// random yeni bir position ekle ve onu set et
+						var foodX = Math.floor(Math.random() * 20);
+						var foodY = Math.floor(Math.random() * 20);
+						setFoodPosition(foodX * 15, foodY * 15);
+					}
+					// console.log("THIS:", this)
+					jQuery(this).css(getNextPosition(jQuery(this)));
+				} else jQuery(this).css(positionList[key - 1]);
+			}
 		});
 	}, 200);
 
@@ -183,6 +200,10 @@
 		'<style>.score { z-index:99999999;color:red;  position: fixed; top: 0; right:25px;}</style>'
 	);
 
+	jQuery('body').append( // finish itemimiz
+		`<style>.finish { z-index:99999999; width: ${jQuery(window).width() + "px"}; height: 100; position: fixed; top: 0; left:0; border: 3px solid red;  background: green;}</style>`
+	);
+
 	var i = 0;
 	while (i < snakeLength) {
 		jQuery('body').append(snakeBody.clone().css(positionList[i] || {}));
@@ -194,4 +215,5 @@
 	jQuery('body').append(scoreDiv.clone());
 	jQuery('.snakeBody:first').css('background', 'red');
 	setScore(score);
+
 })();
