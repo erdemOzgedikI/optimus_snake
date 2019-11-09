@@ -53,7 +53,7 @@
 				) +
 				direction.vertical * 15);
 
-		// max width ve height ulasildiginda bu koda giriyor.
+		// max width ve height ulasildiginda bu koda giriyor. // Sınır case'i burdan cozulebilir ama beceremedim
 		position.top &&
 			((position.top > jQuery(window).height() && (position.top = 0)) ||
 				(position.top < 0 && (position.top = jQuery(window).height())));
@@ -222,3 +222,14 @@
 	});
 
 })();
+
+/*
+ 1-) lc waikiki sitesinde key code 39'a basildginda bu hatayi aliyorduk 'Uncaught ReferenceError: NextImageButton is not defined' anlamaya calistim ama cozemedim
+	bizim codumuzla ilgili degil diye dusunuyorum baska sitelerde denedim sikintisiz bir sekilde calisti 'https://www.microsoft.com/tr-tr/'
+
+ 2-) Yilan gittiği yönün tersine gidemiyordu o case cozuldu.
+
+ 3-) User'a score icin herhangi bir belirti gosterilmiyordu o eklendi
+
+ 4-) Kuyruga carpildginda oyun devam ediyordu o case cozuldu
+*/
