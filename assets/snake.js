@@ -150,7 +150,7 @@
 							if (positionList[key].left === positionList[i].left && positionList[key].top === positionList[i].top) {
 								jQuery('body').append(finishDiv.clone());
 								jQuery('.finishScore').text(score);
-								status = false
+								status = false;
 								continue
 							}
 						}
@@ -215,5 +215,10 @@
 	jQuery('body').append(scoreDiv.clone());
 	jQuery('.snakeBody:first').css('background', 'red');
 	setScore(score);
+
+	window.addEventListener("beforeunload", function (event) {
+		saveGameData()
+		localStorage.removeItem("positionList");// eger silmezsem tail case'i patliyor.
+	});
 
 })();
